@@ -6,7 +6,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useStateValue } from "./StateProvider";
 
 function Header() {
-  const [{ basket }] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
+
+  console.log(basket);
 
   return (
     <nav className="header">
@@ -49,7 +51,7 @@ function Header() {
           <div className="header__optionBasket">
             <ShoppingCartIcon />
             <span className="header__optionLineTwo header__basketCount">
-              {basket.length}
+              {basket?.length}
             </span>
           </div>
         </Link>
